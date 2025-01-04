@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  transition: 0.5s ease;
+  font-family: 'Montserrat', monospace;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+:root {
+  --backgroundColor: #121212;
+  --accents: #FF5733;
+  --textColor: #ffffff;
+  --secondary: #1F1F1F;
+  --hover: #FF6F61;
+  --borderDefault: gray;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.App {
+  background-color: var(--backgroundColor);
+  color: var(--textColor);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main-content {
+  width: 90vw;
+  height: calc(100vh - 150px);
+  border-color: white;
+  border-style: solid;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+/*Navs*/
+@keyframes onload {
+  from {
+    margin-top: 100px;
+    opacity: 0;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+.nav {
+  /* display: none !important; */
+  /* transition: all 0.7s ease; */
+  animation: onload 0.5s ease-in-out;
+}
+#lowerNav {
+  text-align: center;
+  position: absolute;
+  bottom: 70px;
+  left: 0;
+  width: calc(100% - 10px);
+  height: 0px;
+}
+#lowerNav .navButton {
+  height: 60px;
+  width: 70px;
+  margin-left: 10px;
+  transition: all 0.4s ease;
+  position: absolute;
+  right: 0;
+  background-color: var(--secondary);
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: white;
+}
+#lowerNav .navButton img{
+  height: 35px;
+}
+#lowerNav .navButton .prevImg{
+  transform: rotate(180deg);
+}
+
+#label-next {
+  position: absolute;
+  right: 60px;
+  text-align: right;
+  /* margin-top: 10px; */
+  display: none;
+  background-color: #333;
+  padding: 10px;
+  padding-right: 55px;
+  margin-right: -55px;
+  border-radius: 10px;
+}
+
+.inactive {
+  opacity: 0.5;
+  filter: saturate(25%);
+  scale: 0.9;
+}
+
+#lowerNav .navButton:first-child {
+  left: 0;
+}
+
+#lowerNav .navButton:hover:not(.inactive)  {
+  scale: 1.1;
+}
+.textBox {
+  width: 300px;
+  background-color: var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--borderDefault);
+  font-size: 16px;
+  padding: 10px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  color: var(--textColor);
+  
+}
+
+.textInput {
+  background-color: var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border-style: solid;
+  border-color: var(--accents);
+  font-size: 16px;
+  padding: 10px;
+  color: var(--textColor);
+  border: 1px solid var(--borderDefault);
+  outline: none;
+  flex:1;
+}
+
+.numberInput {
+  background-color: var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border-style: solid;
+  border-color: var(--accents);
+  font-size: 16px;
+  padding: 10px;
+  color: var(--textColor);
+  border: 1px solid var(--borderDefault);
+  outline: none;
+  flex:1;
+}
+
+.numberInput,
+.textInput,
+.selectInput {
+  max-width: 300px;
+  height: 45px;
+}
+
+.selectInput {
+  cursor: pointer;
+  flex:1;
+  max-width: 300px;
+  background-color: var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border-style: solid;
+  border-color: var(--accents);
+  font-size: 16px;
+  padding: 5px;
+  color: var(--textColor);
+  border: 1px solid var(--borderDefault);
+  outline: none;
+  height: 40px;
+}
+
+.inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+.alliance-selection-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.allianceButton {
+  padding: 12px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+.allianceButton:not(.selected) {
+  cursor: pointer;
+}
+.red {
+  background-color: rgb(255, 63, 63);
+}
+.red:hover:not(.selected) {
+  background-color: rgb(255, 98, 98);
+}
+.blue {
+  background-color: #1d83ff;
+}
+.blue:hover:not(.selected) {
+  background-color: #4c9dff;
+}
+.selected {
+  scale: 1.1;
+  opacity: 0.5;
+}
+h1 {
+  font-size: 35px;
+  margin: 5px;
+  padding: 0;
+}
+.title {
+  margin-bottom: 5px;
+}
+
+.textInput:focus {
+  border-bottom: 3px solid var(--accents);
+}
+
+.numberInput:focus {
+  border-bottom: 3px solid var(--accents);
+}
+
+.selectInput:hover
+.selectInput:focus {
+  border: 2px solid var(--accents);
+}
+
+.header {
+  height: 45px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+  background-color: #1F1F1F;
+  width: 100vw;
+}
+
+.header img{
+  height: 100%;
+}
+
+.inputLabel {
+  display: inline;          /* Prevents the text from wrapping to the next line */
+  overflow: hidden;             /* Hides any text that overflows the element */
+  overflow-wrap: break-word;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input {
+  width: 95%;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.fieldpositionsimage {
+  border-radius: 10px;
+  border: 1.5px solid var(--accents);
+  height: 280px;
+}
+
+.positionButton {
+  flex: 1;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.buttonGrid {
+  width: 100px;
+  height: 60px;
+  display: flex;
+  gap: 5px;
+  flex:1;
+}
+
+.inputButton {
+  border-radius: 8px;
+  flex: 1;
+  border-style: none;
+  min-height: 30px;
+}
+
+
+.page {
+  display: none; /* Hide all pages by default */
+}
+
+.page.active {
+  display: block; /* Show only the active page */
+}
+
+.page.hidden {
+  visibility: hidden; /* Keep hidden pages invisible but mounted */
+  height: 0; /* Prevent taking up space */
+  overflow: hidden;
+}
+
